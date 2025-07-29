@@ -61,10 +61,9 @@ export const SignInView = () => {
 				onError: ({ error }) => {
 					setPending(false);
 					setError(error.message);
-				}
+				},
 			}
 		);
-
 	};
 
 	const onSocial = (provider: "github" | "google") => {
@@ -83,10 +82,9 @@ export const SignInView = () => {
 				onError: ({ error }) => {
 					setPending(false);
 					setError(error.message);
-				}
+				},
 			}
 		);
-
 	};
 
 	return (
@@ -94,7 +92,10 @@ export const SignInView = () => {
 			<Card className="overflow-hidden p-0">
 				<CardContent className="grid p-0 md:grid-cols-2">
 					<Form {...form}>
-						<form className="p-6 md:p-8" onSubmit={form.handleSubmit(onSubmit)}>
+						<form
+							className="p-6 md:p-8"
+							onSubmit={form.handleSubmit(onSubmit)}
+						>
 							<div className="flex flex-col p-6 gap-5">
 								<div className="flex flex-col items-center text-center">
 									<h1 className="text-2xl font-bold">
@@ -178,7 +179,7 @@ export const SignInView = () => {
 										type="button"
 										className="w-full"
 									>
-										<FaGithub /> GitHub
+										<FaGithub /> Github
 									</Button>
 								</div>
 
@@ -214,8 +215,14 @@ export const SignInView = () => {
 			<div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
 				<p>
 					By signing in, you agree to our{" "}
-					<Link href="#" className="underline">Terms of Service</Link> and{" "}
-					<Link href="#" className="underline">Privacy Policy</Link>.
+					<Link href="#" className="underline">
+						Terms of Service
+					</Link>{" "}
+					and{" "}
+					<Link href="#" className="underline">
+						Privacy Policy
+					</Link>
+					.
 				</p>
 			</div>
 		</div>

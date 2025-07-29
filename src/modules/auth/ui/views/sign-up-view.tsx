@@ -8,7 +8,7 @@ import Image from "next/image";
 import { OctagonAlertIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaGithub, FaGoogle  } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 import { authClient } from "@/lib/auth-client";
 import { Input } from "@/components/ui/input";
@@ -76,26 +76,25 @@ export const SignUpView = () => {
 	};
 
 	const onSocial = (provider: "github" | "google") => {
-			setError(null);
-			setPending(true);
-	
-			authClient.signIn.social(
-				{
-					provider: provider,
-					callbackURL: "/",
+		setError(null);
+		setPending(true);
+
+		authClient.signIn.social(
+			{
+				provider: provider,
+				callbackURL: "/",
+			},
+			{
+				onSuccess: () => {
+					setPending(false);
 				},
-				{
-					onSuccess: () => {
-						setPending(false);
-					},
-					onError: ({ error }) => {
-						setPending(false);
-						setError(error.message);
-					}
-				}
-			);
-	
-		};
+				onError: ({ error }) => {
+					setPending(false);
+					setError(error.message);
+				},
+			}
+		);
+	};
 
 	return (
 		<div className="flex flex-col gap-6">
