@@ -8,30 +8,26 @@ export default function HomeView() {
 	const router = useRouter();
 	const { data: session } = authClient.useSession();
 
-	if (session) {
-		return (
-			<div className="flex flex-col p-4 gap-y-4">
-				<p className="text-lg">Welcome, {session.user.name}!</p>
-				<Button
-					onClick={() => {
-						authClient.signOut({
-							fetchOptions: {
-								onSuccess: async () => {
-									router.push("/");
-								},
-							},
-						});
-					}}
-				>
-					Log Out
-				</Button>
-			</div>
-		);
-	}
-
 	if (!session) {
 		return <p>Loading...</p>;
 	}
 
-	return <div>Homepage!</div>;
+	return (
+		<div className="flex flex-col p-4 gap-y-4">
+			<p className="text-lg">Welcome, {session.user.name}!</p>
+			<Button
+				onClick={() => {
+					authClient.signOut({
+						fetchOptions: {
+							onSuccess: async () => {
+								router.push("/");
+							},
+						},
+					});
+				}}
+			>
+				Log Out
+			</Button>
+		</div>
+	);
 }
