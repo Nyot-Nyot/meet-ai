@@ -121,9 +121,9 @@ export const DashboardSidebar = () => {
 					</SidebarGroupContent>
 				</SidebarGroup>
 			</SidebarContent>
-      <SidebarFooter>
-        <DashboardUserButton />
-      </SidebarFooter>
+			<SidebarFooter>
+				<DashboardUserButton />
+			</SidebarFooter>
 		</Sidebar>
 	);
 };

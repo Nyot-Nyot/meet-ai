@@ -17,22 +17,22 @@ export const GeneratedAvatar = ({
 }: GeneratedAvatarProps) => {
 	let avatar;
 
-  if (variant === "botttsNeutral") {
-    avatar = createAvatar(botttsNeutral, {
-      seed,
-    })
-  } else {
-    avatar = createAvatar(initials, {
-      seed,
-      fontWeight: 500,
-      fontSize: 42,
-    })
-  }
+	if (variant === "botttsNeutral") {
+		avatar = createAvatar(botttsNeutral, {
+			seed,
+		});
+	} else {
+		avatar = createAvatar(initials, {
+			seed,
+			fontWeight: 500,
+			fontSize: 42,
+		});
+	}
 
-  return (
-    <Avatar className={cn(className)}>
-      <AvatarImage src={avatar.toDataUri()} alt="Avatar"/>
-      <AvatarFallback>{seed.charAt(0).toUpperCase()}</AvatarFallback>
-    </Avatar>
-  )
+	return (
+		<Avatar className={cn(className)}>
+			<AvatarImage src={avatar.toDataUri()} alt="Avatar" />
+			<AvatarFallback>{seed.charAt(0).toUpperCase()}</AvatarFallback>
+		</Avatar>
+	);
 };
