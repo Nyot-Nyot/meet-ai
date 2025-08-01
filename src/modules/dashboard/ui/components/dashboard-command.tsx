@@ -14,7 +14,7 @@ export const DashboardCommand = ({open, setOpen}: Props) => {
         <CommandItem>
           Test
         </CommandItem>
-      </CommandList>s
+      </CommandList>
     </CommandDialog>
   )
 };
